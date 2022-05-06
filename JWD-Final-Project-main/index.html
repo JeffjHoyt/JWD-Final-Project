@@ -19,28 +19,31 @@
           <div class="col-3">
           </div>
           <div class="col-6">
-            <div class="form-group">
-                <label for="taskInput"><span>Task name</span></label>
-                <input type="text" class="form-control" id="name" placeholder="Type task name here...">
+            <form id="newTaskForm">
+              <div class="form-group">
+                  <label for="newTaskName"><span>Task name</span></label>
+                  <input type="text" class="form-control" id="newTaskName" placeholder="Type task name here...">
+                </div>
+                <div class="form-group">
+                  <label for="newTaskDescription"><span>Task description</span></label>
+                  <input type="text" class="form-control" id="newTaskDescription" placeholder="Type task description here...">
               </div>
               <div class="form-group">
-                <label for="description"><span>Task description</span></label>
-                <input type="text" class="form-control" id="description" placeholder="Type task description here...">
+                <label for="newTaskAssignedTo"><span>Assigned to</span></label>
+                <input type="text" class="form-control" id="newTaskAssignedTo" placeholder="Type task name here...">
+              </div>
+              <div class="form-group">
+                <label for="newTaskDueDate"><span>Due date</span></label>
+                <input type="date" class="form-control" id="newTaskDueDate" placeholder="Assigned to">
             </div>
-            <div class="form-group">
-              <label for="assigned-to"><span>Assigned to</span></label>
-              <input type="text" class="form-control" id="assigned-to" placeholder="Type task name here...">
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="due-date"><span>Due date</span></label>
-              <input type="date" class="form-control" id="due-date" placeholder="Assigned to">
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-10">
-              <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </div>
-          </div>
-          </div>
+            </div>
+          </form>
           <div class="col-3">
           </div>
         </div>
