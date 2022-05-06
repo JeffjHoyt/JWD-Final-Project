@@ -14,6 +14,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) =>
      </li>`
    ; 
 
+
 class TaskManager {
 
     constructor(currentId = 0) {
