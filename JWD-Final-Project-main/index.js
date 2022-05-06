@@ -1,8 +1,8 @@
-const newTaskForm 
+const newTaskForm = document.querySelector('#newTaskForm');
 
-addEventListener(submit) {
-
-}
+newTaskForm.addEventListener(submit, (event) => {
+    event.preventDefault()
+});
 
 function eventHandler(event) {
         if (event.type == 'submit')&&(validate = true) {
@@ -20,4 +20,25 @@ tasksList.addEventListener('click', (event) => {
         taskManager.render();
     }
 });
+
+    const newTaskNameInput = document.querySelector('#newTaskName');
+    const newTaskDescription = document.querySelector('#newTaskDescription');
+    const newTaskAssignedTo = document.querySelector('#newTaskAssignedTo');
+    const newTaskDueDate = document.querySelector('#newTaskDueDate');
+    const errorMessage = document.querySelector('errorMessage');
+
+    const name = newTaskNameInput.value;
+    const description = newTaskDescription.value;
+    const assignedTo = newTaskAssignedTo.value;
+    const dueDate = newTaskDueDate.value;
+    if(!validFormFieldInput(name)){
+        errorMessage.innerHTML = "Invalid name";
+        errorMessage.style.display = "block"
+    }else{
+        errorMessage.style.display = "none"
+    }
+
+    function validFormFieldInput(data){
+    return data !== null && data !== '';
+}
 
