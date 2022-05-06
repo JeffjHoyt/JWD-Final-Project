@@ -1,3 +1,19 @@
+const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => 
+    `<li class="list-group-item" data-task-id = ${id}>
+       <div class="card w-10">
+         <div class="card-body">
+           <h5 class="card-title">${name}</h5>
+           <span class="badge ${status === 'To do' ? 'badge-danger' : 'badge-success'}">${status}</span>
+           <p class="card-text">${assignedTo}</p>
+           <p class="card-text">${description}</p>
+           <p class="card-text">${dueDate}</p>
+           <button class="btn btn-outline-success done-button mr-1 ${status === "To do" ? "visible" : "invisible"}">Done</button>
+           <button type="button" class="btn btn-primary">DELETE</button>
+         </div>
+       </div>
+     </li>`
+   ;
+   
 class TaskManager {
 
     constructor(currentId) {
