@@ -1,8 +1,24 @@
+const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => 
+    `<li class="list-group-item" data-task-id = ${id}>
+       <div class="card w-10">
+         <div class="card-body">
+           <h5 class="card-title">${name}</h5>
+           <span class="badge ${status === 'To do' ? 'badge-danger' : 'badge-success'}">${status}</span>
+           <p class="card-text">${assignedTo}</p>
+           <p class="card-text">${description}</p>
+           <p class="card-text">${dueDate}</p>
+           <button class="btn btn-outline-success done-button mr-1 ${status === "To do" ? "visible" : "invisible"}">Done</button>
+           <button class="btn btn-primary delete-button">DELETE</button>
+         </div>
+       </div>
+     </li>`
+   ; 
+
 class TaskManager {
 
-    constructor(currentId) {
+    constructor(currentId = 0) {
         this.tasks = [];
-        this.currentId = 0;
+        this.currentId = currentId;
     }
     
      addTask(name, description, assignedTo, dueDate) {
@@ -16,12 +32,25 @@ class TaskManager {
         }
         this.tasks.push(task)
     }
+
+    // creating delete task method
+    deleteTask(taskId){
+        const newTasks = [];
+        //loop over thos.task
+        for(let i = 0; i < this.task.length; i++){
+            const task = this.tasks[i];
+            if(task.id != taskId){
+                newTasks.push(task);
+            } 
+        }
+    }
 };
 
-const test = new TaskManager("whatever");
+/* const test = new TaskManager("whatever");
 
 test.addTask("Jeff", "take out the trash", "not me", "Nov, 11th" )
 
 
 
 console.log(test.tasks);
+ */
