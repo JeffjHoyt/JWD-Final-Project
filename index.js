@@ -1,49 +1,72 @@
+const taskManager = new TaskManager(0);
+
+taskManager.load();
+
+taskManager.render();
+
 const newTaskForm = document.querySelector('#newTaskForm');
 
-newTaskForm.addEventListener(submit, (event) => {
-    event.preventDefault()
-});
+newTaskForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-function eventHandler(event) {
-        if (event.type == 'submit')&&(validate = true) {
-            
-        } 
-}
-
-tasksList.addEventListener('click', (event) => {
-
-    if (event.target.classlist.contains('delete-button')) {
-        const parentTask = event.target.parentElement.parentElement;
-        const taskId = Number(parentTask.dataset.taskId);
-        taskManager.deleteTask(taskId);
-        taskManager.save();
-        taskManager.render();
-    }
-});
-
-    const newTaskNameInput = document.querySelector('#newTaskName');
+    const newTaskNameInput = document.querySelector('#newTaskNameInput');
     const newTaskDescription = document.querySelector('#newTaskDescription');
     const newTaskAssignedTo = document.querySelector('#newTaskAssignedTo');
     const newTaskDueDate = document.querySelector('#newTaskDueDate');
-    const errorMessage = document.querySelector('errorMessage');
+
+    /*
+        Validation code here
+    */
 
     const name = newTaskNameInput.value;
     const description = newTaskDescription.value;
     const assignedTo = newTaskAssignedTo.value;
     const dueDate = newTaskDueDate.value;
-    if(!validFormFieldInput(name)){
-        errorMessage.innerHTML = "Invalid name";
-        errorMessage.style.display = "block"
-    }else{
-        errorMessage.style.display = "none"
+
+    taskManager.addTask(name, description, assignedTo, dueDate);
+
+    taskManager.save();
+
+    taskManager.render();
+
+    newTaskNameInput.value = '';
+    newTaskDescription.value = '';
+    newTaskAssignedTo.value = '';
+    newTaskDueDate.value = '';
+});
+
+const tasksList = document.querySelector('#tasksList');
+
+tasksList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('done-button')) {
+        const parentTask = event.target.parentElement.parentElement;
+
+        const taskId = Number(parentTask.dataset.taskId);
+
+        const task = taskManager.getTaskById(taskId);
+
+        task.status = 'DONE';
+
+        taskManager.save();
+
+        taskManager.render();
     }
 
-    function validFormFieldInput(data){
-    return data !== null && data !== '';
-}
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
+    // Check if a "Delete" button was clicked
+    if (event.target.classList.contains('delete-button')) {
+        // Get the parent Task
+        const parentTask = event.target.parentElement.parentElement;
+
+        // Get the taskId of the parent Task.
+        const taskId = Number(parentTask.dataset.taskId);
+
+        // Delete the task
+        taskManager.deleteTask(taskId);
+
+        // Save the tasks to localStorage
+        taskManager.save();
+
+        // Render the tasks
+        taskManager.render();
+    }
+});
