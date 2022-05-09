@@ -1,3 +1,4 @@
+// create task HTML function
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => 
     `<li class="list-group-item" data-task-id = ${id}>
        <div class="card w-10">
@@ -31,6 +32,21 @@ class TaskManager {
         status: "To do",
         }
         this.tasks.push(task)
+    }
+    render() {
+        const tasksHtmlList = [];
+        for(let i =0;i < this.tasks.leghth; i++) {
+            const task = this.task[i];
+            const date = new Date(task.dueDate);
+            const formattedDate =;
+            const taskHtml = createTaskHtml(task.id, task.name, task.description, task.assignedTo, task.status);
+            tasksHtmlList.push(taskHtml);
+        }
+        const tasksHtml = tasksHtmlList.join(\n);
+        const tasksList = document.querySelector('#taskList');
+        tasksList.innerHTML = tasksList;
+        
+        
     }
 };
 
