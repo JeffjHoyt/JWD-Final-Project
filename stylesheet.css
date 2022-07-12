@@ -1,4 +1,6 @@
-
+.total-bg {
+    
+}
    
 .form-group span {
     font-weight: bold;
@@ -10,6 +12,25 @@
     background-color: cornsilk;
     margin-top: 20px;
     border-radius: 13px;
+}
+
+.task-style {
+    background-color: #84A9C0;
+    border-radius: 60px;
+}
+
+.btn-background {
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.btn-background-1 {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+
+.task-bg {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .task-box {

@@ -1,21 +1,20 @@
 // Add a Delete button with the class delete-button
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
-
-<div class="container">
-<div class="row">
-  <div class="col">
-    <ul class="list-group">
-      <li class="list-group-item" data-task-id=${id}>
-        <div class="card w-10">
-          <div class="card-body">
-            <h5 class="card-title">${name}</h5>
-            <p class="card-text">${assignedTo}</p>
-            <p class="card-text">${description}</p>
-            <p class="card-text">${dueDate}</p>
-            <button type="button" class="btn btn-primary delete-button">Done</button>
-          </div>
+    <li class="list-group-item task-style task-bg" data-task-id=${id}>
+        <div class="d-flex w-100 mt-2 justify-content-between align-items-center">
+            <h5>${name}</h5>
+            <span class="badge ${status === 'TODO' ? 'badge-danger' : 'badge-success'}">${status}</span>
         </div>
-      </li>
+        <div class="d-flex w-100 mb-3 justify-content-between">
+            <small>Assigned To: ${assignedTo}</small>
+            <small>Due: ${dueDate}</small>
+        </div>
+        <p>${description}</p>
+        <div class="d-flex w-100 justify-content-end">
+            <button class="btn-background btn btn-outline-success done-button mr-1 ${status === 'TODO' ? 'visible' : 'invisible'}">Mark As Done</button>
+            <button class="btn-background btn btn-outline-danger delete-button">Delete</button>
+        </div>
+    </li>
 `;
 
 class TaskManager {
@@ -30,7 +29,8 @@ class TaskManager {
             name: name,
             description: description,
             assignedTo: assignedTo,
-            dueDate: dueDate
+            dueDate: dueDate,
+            status: 'TODO'
         };
 
         this.tasks.push(task);
@@ -55,7 +55,7 @@ class TaskManager {
 
         // Set this.tasks to newTasks
         this.tasks = newTasks;
-    };
+    }
 
 
     getTaskById(taskId) {
@@ -116,4 +116,3 @@ class TaskManager {
         }
     }
 }
-
