@@ -12,8 +12,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
             <p class="card-text">${assignedTo}</p>
             <p class="card-text">${description}</p>
             <p class="card-text">${dueDate}</p>
-            <button type="button" class="btn btn-primary">${status}</button>
-            <button type="button" class="btn btn-primary delete-button">Delete</button>
+            <button type="button" class="btn btn-primary delete-button">Done</button>
           </div>
         </div>
       </li>
@@ -31,8 +30,7 @@ class TaskManager {
             name: name,
             description: description,
             assignedTo: assignedTo,
-            dueDate: dueDate,
-            status: 'TODO'
+            dueDate: dueDate
         };
 
         this.tasks.push(task);
@@ -57,7 +55,7 @@ class TaskManager {
 
         // Set this.tasks to newTasks
         this.tasks = newTasks;
-    }
+    };
 
 
     getTaskById(taskId) {
@@ -118,3 +116,4 @@ class TaskManager {
         }
     }
 }
+
