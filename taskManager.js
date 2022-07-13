@@ -119,6 +119,6 @@ class TaskManager {
     }
 }
 
-document.querySelector('#submit-button').addEventListener('click', function(event) {
+document.querySelector('#submit-button').addEventListener('submit', function(event) {
     event.preventDefault();
   });
