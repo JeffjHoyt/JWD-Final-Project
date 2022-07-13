@@ -1,5 +1,6 @@
 // Add a Delete button with the class delete-button
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
+    <br>
     <li class="list-group-item task-style task-bg" data-task-id=${id}>
         <div class="d-flex w-100 mt-2 justify-content-between align-items-center">
             <h5>${name}</h5>
@@ -15,6 +16,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
             <button class="btn-background btn btn-outline-danger delete-button">Delete</button>
         </div>
     </li>
+    <br>
 `;
 
 class TaskManager {
