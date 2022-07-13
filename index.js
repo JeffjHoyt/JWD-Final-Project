@@ -1,4 +1,4 @@
-const taskManager = new TaskManager(0);
+let taskManager = new TaskManager(0);
 
 taskManager.load();
 

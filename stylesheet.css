@@ -1,3 +1,9 @@
+body {
+    background-image: url("./Task-manager-background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .total-bg {
     margin-top: 20px;
 }
