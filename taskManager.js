@@ -11,7 +11,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => `
             <small>Due: ${dueDate}</small>
         </div>
         <p>${description}</p>
-        <div class="d-flex w-100 justify-content-end">
+        <div class="d-flex w-100 justify-content-end btns">
             <button class="btn-background btn btn-outline-success done-button mr-1 ${status === 'TODO' ? 'visible' : 'invisible'}">Mark As Done</button>
             <button class="btn-background btn btn-outline-danger delete-button">Delete</button>
         </div>

@@ -25,7 +25,7 @@ body {
 
 .task-style {
     background-color: #84A9C0;
-    border-radius: 60px;
+    border-radius: 30px;
 }
 
 .btn-background {
@@ -44,4 +44,8 @@ body {
 
 .task-box {
     margin-top: 60px;
+    max-width: 500px;
+    margin-left: 5%;
+    margin-right: 5%;
 }
+
