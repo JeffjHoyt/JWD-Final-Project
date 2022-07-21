@@ -18,6 +18,9 @@ body {
     background-color: cornsilk;
     margin-top: 20px;
     border-radius: 13px;
+    max-width: 500px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .task-style {
